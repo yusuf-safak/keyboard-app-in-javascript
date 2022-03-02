@@ -1,3 +1,4 @@
+//It works when you press enter. Shows text as message box and clears text compose area.
 function Enter(text)
 {
     var textboxes = document.getElementById("textboxes")
@@ -6,16 +7,19 @@ function Enter(text)
     textElement.setAttribute("id","text")
     textboxes.append(textElement)
 }
+//default keyboard model
 var Keys = [
     "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P","Ğ", "Ü", "DELETE", 
     "CAPS", "A", "S", "D", "F", "G", "H", "J", "K","L", "Ş", "İ", "ENTER",
     "aa", "aa", "Z", "X", "C", "V", "B", "N", "M", "Ö", "Ç", "aa","aa",
     "aa", "aa", "aa", "aa", "SPACE"
 ]
+//It works when you press the caps key. Each click changes the size of the letters on the keyboard.
 function capsLock(bool)
 {
     if(bool==false)
     {
+        //lowercase keyboard
         Keys = [
             "q", "w", "e", "r", "t", "y", "u", "ı", "o", "p","ğ", "ü", "DELETE", 
             "CAPS", "a", "s", "d", "f", "g", "h", "j", "k","l", "ş", "i", "ENTER",
@@ -25,6 +29,7 @@ function capsLock(bool)
     }
     if(bool==true)
     {
+        //uppercase keyboard
         Keys = [
             "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P","Ğ", "Ü", "DELETE", 
             "CAPS", "A", "S", "D", "F", "G", "H", "J", "K","L", "Ş", "İ", "ENTER",
@@ -39,6 +44,7 @@ function capsLock(bool)
 }
 var totalText = ""
 var capsClick = 0;
+//Keyboard function. It works if the screen is loaded. It takes the keys from the above arrays as parameters. Keys are created with buttons.
 function Keyboard(keys)
 {
     var keyboard = document.getElementById("keyboard")
@@ -93,6 +99,7 @@ function Keyboard(keys)
         keyboard.append(buttonElement)
     })
 }
+//It is the function where the functions that will run when the screen is loaded are written.
 window.onload =  function()
 {
     Keyboard(Keys)
